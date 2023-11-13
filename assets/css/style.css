@@ -208,6 +208,20 @@
 
   .icon-box ion-icon { --ionicon-stroke-width: 35px; }
 
+  .icon-boxs {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    color: var(--orange-yellow-crayola);
+    z-index: 1;
+  }
+
+
+  .icon-boxs ion-icon { --ionicon-stroke-width: 30px; }
+
   article { display: none; }
 
   article.active {
