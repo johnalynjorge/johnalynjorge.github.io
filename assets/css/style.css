@@ -206,19 +206,29 @@
     z-index: -1;
   }
 
-  .icon-box ion-icon { --ionicon-stroke-width: 35px; }
+
+  .icon-box ion-icon { --ionicon-stroke-width: 35px; display: block;}
 
   .icon-boxs {
     position: relative;
     width: 40px;
     height: 40px;
-    display: flex;
+    display: block;
     align-items: center;
+    justify-content: center;
     font-size: 40px;
     color: var(--orange-yellow-crayola);
     z-index: 1;
   }
 
+  .icon-boxs::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: var(--eerie-black-1);
+    border-radius: inherit;
+    z-index: -1;
+  }
 
   .icon-boxs ion-icon { --ionicon-stroke-width: 30px; }
 
@@ -460,6 +470,10 @@
 
   .social-item .social-link:hover { color: var(--light-gray); }
 
+  ion-icon {
+ pointer-events: none;
+}
+
 
 
 
@@ -557,6 +571,10 @@
   .service-icon-box { margin-bottom: 10px; }
 
   .service-icon-box img { margin: auto; }
+
+  .icon-boxs ion-icon { margin: auto; }
+
+  .icon-boxs { display: block; }
 
   .service-content-box { text-align: center; }
 
@@ -1417,6 +1435,12 @@
       margin-bottom: 0;
       margin-top: 5px;
     }
+
+    .icon-boxs {
+      margin-bottom: 0;
+      margin-top: 5px;
+    }
+
 
     .service-content-box { text-align: left; }
 
