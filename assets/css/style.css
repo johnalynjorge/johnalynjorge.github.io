@@ -1,1920 +1,1328 @@
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
-
-
-/**
- * copyright 2022 @codewithsadee
- */
-
-
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
-
-:root {
-
-    /**
-     * colors
-     */
-
-    /* gradient */
-
-    --bg-gradient-onyx: linear-gradient(
-      to bottom right,
-      hsl(240, 1%, 25%) 3%,
-      hsl(0, 0%, 19%) 97%
-    );
-    --bg-gradient-jet: linear-gradient(
-      to bottom right,
-      hsla(240, 1%, 18%, 0.251) 0%,
-      hsla(240, 2%, 11%, 0) 100%
-    ), hsl(240, 2%, 13%);
-    --bg-gradient-yellow-1: linear-gradient(
-      to bottom right,
-      hsl(45, 100%, 71%) 0%,
-      hsla(36, 100%, 69%, 0) 50%
-    );
-    --bg-gradient-yellow-2: linear-gradient(
-      135deg,
-      hsla(45, 100%, 71%, 0.251) 0%,
-      hsla(35, 100%, 68%, 0) 59.86%
-    ), hsl(240, 2%, 13%);
-    --border-gradient-onyx: linear-gradient(
-      to bottom right,
-      hsl(0, 0%, 25%) 0%,
-      hsla(0, 0%, 25%, 0) 50%
-    );
-    --text-gradient-yellow: linear-gradient(
-      to right,
-      hsl(45, 100%, 72%),
-      hsl(35, 100%, 68%)
-    );
-
-    /* solid */
-
-    --jet: hsl(0, 0%, 22%);
-    --onyx: hsl(240, 1%, 17%);
-    --eerie-black-1: hsl(240, 2%, 13%);
-    --eerie-black-2: hsl(240, 2%, 12%);
-    --smoky-black: hsl(0, 0%, 7%);
-    --white-1: hsl(0, 0%, 100%);
-    --white-2: hsl(0, 0%, 98%);
-    --orange-yellow-crayola: hsl(45, 100%, 72%);
-    --vegas-gold: hsl(45, 54%, 58%);
-    --light-gray: hsl(0, 0%, 84%);
-    --light-gray-70: hsla(0, 0%, 84%, 0.7);
-    --bittersweet-shimmer: hsl(0, 43%, 51%);
+<!DOCTYPE html>
+<html lang="en">
 
-    /**
-     * typography
-     */
-
-    /* font-family */
-    --ff-poppins: 'Poppins', sans-serif;
-
-    /* font-size */
-    --fs-1: 24px;
-    --fs-2: 18px;
-    --fs-3: 17px;
-    --fs-4: 16px;
-    --fs-5: 15px;
-    --fs-6: 14px;
-    --fs-7: 13px;
-    --fs-8: 11px;
-
-    /* font-weight */
-    --fw-300: 300;
-    --fw-400: 400;
-    --fw-500: 500;
-    --fw-600: 600;
-
-    /**
-     * shadow
-     */
-
-    --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
-    --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
-    --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
-    --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
-    --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Johnalyn Jorge - Personal Portfolio</title>
 
-    /**
-     * transition
-     */
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/avatar-jorge.png" type="image/x-icon">
 
-    --transition-1: 0.25s ease;
-    --transition-2: 0.5s ease-in-out;
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
 
-  }
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+</head>
 
+<body>
 
+  <!--
+    - #MAIN
+  -->
 
+  <main>
 
-  /*-----------------------------------*\
-    #RESET
-  \*-----------------------------------*/
+    <!--
+      - #SIDEBAR
+    -->
 
-  *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  a { text-decoration: none; }
-
-  li { list-style: none; }
-
-  img, ion-icon, a, button, time, span { display: block; }
-
-  button {
-    font: inherit;
-    background: none;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  input, textarea {
-    display: block;
-    width: 100%;
-    background: none;
-    font: inherit;
-  }
-
-  ::selection {
-    background: var(--orange-yellow-crayola);
-    color: var(--smoky-black);
-  }
-
-  :focus { outline-color: var(--orange-yellow-crayola); }
-
-  html { font-family: var(--ff-poppins); }
-
-  body { background: var(--smoky-black); }
-
-
+    <aside class="sidebar" data-sidebar>
 
-
-
-  /*-----------------------------------*\
-    #REUSED STYLE
-  \*-----------------------------------*/
-
-  .sidebar,
-  article {
-    background: var(--eerie-black-2);
-    border: 1px solid var(--jet);
-    border-radius: 20px;
-    padding: 15px;
-    box-shadow: var(--shadow-1);
-    z-index: 1;
-  }
-
-  .separator {
-    width: 100%;
-    height: 1px;
-    background: var(--jet);
-    margin: 16px 0;
-  }
-
-  .icon-box {
-    position: relative;
-    background: var(--border-gradient-onyx);
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    color: var(--orange-yellow-crayola);
-    box-shadow: var(--shadow-1);
-    z-index: 1;
-  }
-
-  .icon-box::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    background: var(--eerie-black-1);
-    border-radius: inherit;
-    z-index: -1;
-  }
-
-
-  .icon-box ion-icon { --ionicon-stroke-width: 35px; display: block;}
-
-  .icon-boxs {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    display: block;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    color: var(--orange-yellow-crayola);
-    z-index: 1;
-  }
-
-  .icon-boxs::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    background: var(--eerie-black-1);
-    border-radius: inherit;
-    z-index: -1;
-  }
-
-  .icon-boxs ion-icon { --ionicon-stroke-width: 30px; }
-
-  article { display: none; }
-
-  article.active {
-    display: block;
-    animation: fade 0.5s ease backwards;
-  }
+      <div class="sidebar-info">
 
-  @keyframes fade {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-  .h2,
-  .h3,
-  .h4,
-  .h5 {
-    color: var(--white-2);
-    text-transform: capitalize;
-  }
-
-  .h2 { font-size: var(--fs-1); }
-
-  .h3 { font-size: var(--fs-2); }
-
-  .h4 { font-size: var(--fs-4); }
-
-  .h5 {
-    font-size: var(--fs-7);
-    font-weight: var(--fw-500);
-  }
-
-  .article-title {
-    position: relative;
-    padding-bottom: 7px;
-  }
-
-  .article-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 30px;
-    height: 3px;
-    background: var(--text-gradient-yellow);
-    border-radius: 3px;
-  }
-
-  .has-scrollbar::-webkit-scrollbar {
-    width: 5px; /* for vertical scrollbar */
-    height: 5px; /* for horizontal scrollbar */
-  }
-
-  .has-scrollbar::-webkit-scrollbar-track {
-    background: var(--onyx);
-    border-radius: 5px;
-  }
-
-  .has-scrollbar::-webkit-scrollbar-thumb {
-    background: var(--orange-yellow-crayola);
-    border-radius: 5px;
-  }
-
-  .has-scrollbar::-webkit-scrollbar-button { width: 20px; }
-
-  .content-card {
-    position: relative;
-    background: var(--border-gradient-onyx);
-    padding: 15px;
-    padding-top: 45px;
-    border-radius: 14px;
-    box-shadow: var(--shadow-2);
-    cursor: pointer;
-    z-index: 1;
-  }
-
-  .content-card::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    background: var(--bg-gradient-jet);
-    border-radius: inherit;
-    z-index: -1;
-  }
-
-
-
-
-
-  /*-----------------------------------*\
-    #MAIN
-  \*-----------------------------------*/
-
-  main {
-    margin: 15px 12px;
-    margin-bottom: 75px;
-    min-width: 259px;
-  }
-
-
-
-
-
-  /*-----------------------------------*\
-    #SIDEBAR
-  \*-----------------------------------*/
-
-  .sidebar {
-    margin-bottom: 15px;
-    max-height: 112px;
-    overflow: hidden;
-    transition: var(--transition-2);
-  }
-
-  .sidebar.active { max-height: 405px; }
-
-  .sidebar-info {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .avatar-box {
-    background: var(--bg-gradient-onyx);
-    border-radius: 20px;
-  }
-
-  .info-content .name {
-    color: var(--white-2);
-    font-size: var(--fs-3);
-    font-weight: var(--fw-500);
-    letter-spacing: -0.25px;
-    margin-bottom: 10px;
-  }
-
-  .info-content .title {
-    color: var(--white-1);
-    background: var(--onyx);
-    font-size: var(--fs-8);
-    font-weight: var(--fw-300);
-    width: max-content;
-    padding: 3px 12px;
-    border-radius: 8px;
-  }
-
-  .info_more-btn {
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    border-radius: 0 15px;
-    font-size: 13px;
-    color: var(--orange-yellow-crayola);
-    background: var(--border-gradient-onyx);
-    padding: 10px;
-    box-shadow: var(--shadow-2);
-    transition: var(--transition-1);
-    z-index: 1;
-  }
-
-  .info_more-btn::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    background: var(--bg-gradient-jet);
-    transition: var(--transition-1);
-    z-index: -1;
-  }
-
-  .info_more-btn:hover,
-  .info_more-btn:focus { background: var(--bg-gradient-yellow-1); }
-
-  .info_more-btn:hover::before,
-  .info_more-btn:focus::before { background: var(--bg-gradient-yellow-2); }
-
-  .info_more-btn span { display: none; }
-
-  .sidebar-info_more {
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition-2);
-  }
-
-  .sidebar.active .sidebar-info_more {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .contacts-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .contact-item {
-    min-width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .contact-info {
-    max-width: calc(100% - 46px);
-    width: calc(100% - 46px);
-  }
-
-  .contact-title {
-    color: var(--light-gray-70);
-    font-size: var(--fs-8);
-    text-transform: uppercase;
-    margin-bottom: 2px;
-  }
-
-  .contact-info :is(.contact-link, time, address) {
-    color: var(--white-2);
-    font-size: var(--fs-7);
-  }
-
-  .contact-info address { font-style: normal; }
-
-  .social-list {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 15px;
-    padding-bottom: 4px;
-    padding-left: 7px;
-  }
-
-  .social-item .social-link {
-    color: var(--light-gray-70);
-    font-size: 18px;
-  }
-
-
-  .social-item .social-link:hover { color: var(--light-gray); }
-
-  ion-icon {
- pointer-events: none;
-}
-
-
-
-
-
-  /*-----------------------------------*\
-    #NAVBAR
-  \*-----------------------------------*/
-
-  .navbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: hsla(240, 1%, 17%, 0.75);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--jet);
-    border-radius: 12px 12px 0 0;
-    box-shadow: var(--shadow-2);
-    z-index: 5;
-  }
-
-  .navbar-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 0 10px;
-  }
-
-  .navbar-link {
-    color: var(--light-gray);
-    font-size: var(--fs-8);
-    padding: 20px 7px;
-    transition: color var(--transition-1);
-  }
-
-  .navbar-link:hover,
-  .navbar-link:focus { color: var(--light-gray-70); }
-
-  .navbar-link.active { color: var(--orange-yellow-crayola); }
-
-
-
-
-
-  /*-----------------------------------*\
-    #ABOUT
-  \*-----------------------------------*/
-
-  .about .article-title { margin-bottom: 15px; }
-
-  .about-text {
-    color: var(--light-gray);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-300);
-    line-height: 1.6;
-  }
-
-  .about-text p { margin-bottom: 15px; }
-
-
-
-  /**
-   * #service
-   */
-
-  .service { margin-bottom: 35px; }
-
-  .service-title { margin-bottom: 20px; }
-
-  .service-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .service-item {
-    position: relative;
-    background: var(--border-gradient-onyx);
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: var(--shadow-2);
-    z-index: 1;
-  }
-
-  .service-item::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    background: var(--bg-gradient-jet);
-    border-radius: inherit;
-    z-index: -1;
-  }
-
-  .service-icon-box { margin-bottom: 10px; }
-
-  .service-icon-box img { margin: auto; }
-
-  .icon-boxs ion-icon { margin: auto; }
-
-  .icon-boxs { display: block; }
-
-  .service-content-box { text-align: center; }
-
-  .service-item-title { margin-bottom: 7px; }
-
-  .service-item-text {
-    color: var(--light-gray);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-3);
-    line-height: 1.6;
-  }
-
-
-  /**
-   * #testimonials
-   */
-
-  .testimonials { margin-bottom: 30px; }
-
-  .testimonials-title { margin-bottom: 20px; }
-
-  .testimonials-list {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 15px;
-    margin: 0 -15px;
-    padding: 25px 15px;
-    padding-bottom: 35px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: inline mandatory;
-  }
-
-  .testimonials-item {
-    min-width: 100%;
-    scroll-snap-align: center;
-  }
-
-  .testimonials-avatar-box {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(15px, -25px);
-    background: var(--bg-gradient-onyx);
-    border-radius: 14px;
-    box-shadow: var(--shadow-1);
-  }
-
-  .testimonials-item-title { margin-bottom: 7px; }
-
-  .testimonials-text {
-    color: var(--light-gray);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-300);
-    line-height: 1.6;
-    display: -webkit-box;
-    line-clamp: 4;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-
-  /**
-   * #testimonials-modal
-   */
-
-  .modal-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    z-index: 20;
-    pointer-events: none;
-    visibility: hidden;
-  }
-
-  .modal-container::-webkit-scrollbar { display: none; }
-
-  .modal-container.active {
-    pointer-events: all;
-    visibility: visible;
-  }
-
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: hsl(0, 0%, 5%);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    z-index: 1;
-    transition: var(--transition-1);
-  }
-
-  .overlay.active {
-    opacity: 0.8;
-    visibility: visible;
-    pointer-events: all;
-  }
-
-  .testimonials-modal {
-    background: var(--eerie-black-2);
-    position: relative;
-    padding: 15px;
-    margin: 15px 12px;
-    border: 1px solid var(--jet);
-    border-radius: 14px;
-    box-shadow: var(--shadow-5);
-    transform: scale(1.2);
-    opacity: 0;
-    transition: var(--transition-1);
-    z-index: 2;
-  }
-
-  .modal-container.active .testimonials-modal {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  .modal-close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--onyx);
-    border-radius: 8px;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--white-2);
-    font-size: 18px;
-    opacity: 0.7;
-  }
-
-  .modal-close-btn:hover,
-  .modal-close-btn:focus { opacity: 1; }
-
-  .modal-close-btn ion-icon { --ionicon-stroke-width: 50px; }
-
-  .modal-avatar-box {
-    background: var(--bg-gradient-onyx);
-    width: max-content;
-    border-radius: 14px;
-    margin-bottom: 15px;
-    box-shadow: var(--shadow-2);
-  }
-
-  .modal-img-wrapper > img { display: none; }
-
-  .modal-title { margin-bottom: 4px; }
-
-  .modal-content time {
-    font-size: var(--fs-6);
-    color: var(--light-gray-70);
-    font-weight: var(--fw-300);
-    margin-bottom: 10px;
-  }
-
-  .modal-content p {
-    color: var(--light-gray);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-300);
-    line-height: 1.6;
-  }
-
-
-  /**
-   * #clients
-   */
-
-  .clients { margin-bottom: 15px; }
-
-  .clients-list {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 15px;
-    margin: 0 -15px;
-    padding: 25px;
-    padding-bottom: 25px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: inline mandatory;
-    scroll-padding-inline: 25px;
-  }
-
-  .clients-item {
-    min-width: 50%;
-    scroll-snap-align: start;
-  }
-
-  .clients-item img {
-    width: 100%;
-    filter: grayscale(1);
-    transition: var(--transition-1);
-  }
-
-  .clients-item img:hover { filter: grayscale(0); }
-
-
-
-
-
-  /*-----------------------------------*\
-    #RESUME
-  \*-----------------------------------*/
-
-  .article-title { margin-bottom: 30px; }
-
-
-  /**
-   * education and experience
-   */
-
-  .timeline { margin-bottom: 30px; }
-
-  .timeline .title-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-  }
-
-  .timeline-list {
-    font-size: var(--fs-6);
-    margin-left: 45px;
-  }
-
-  .timeline-item { position: relative; }
-
-  .timeline-item:not(:last-child) { margin-bottom: 20px; }
-
-  .timeline-item-title {
-    font-size: var(--fs-6);
-    line-height: 1.3;
-    margin-bottom: 7px;
-  }
-
-  .timeline-list span {
-    color: var(--vegas-gold);
-    font-weight: var(--fw-400);
-    line-height: 1.6;
-  }
-
-  .timeline-item:not(:last-child)::before {
-    content: "";
-    position: absolute;
-    top: -25px;
-    left: -30px;
-    width: 1px;
-    height: calc(100% + 50px);
-    background: var(--jet);
-  }
-
-  .timeline-item::after {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: -33px;
-    height: 6px;
-    width: 6px;
-    background: var(--text-gradient-yellow);
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px var(--jet);
-  }
-
-  .timeline-text {
-    color: var(--light-gray);
-    font-weight: var(--fw-300);
-    line-height: 1.6;
-  }
-
-
-  /**
-   * skills
-   */
-
-  .skills-title { margin-bottom: 20px; }
-
-  .skills-list { padding: 20px; }
-
-
-  .skills-item:not(:last-child) { margin-bottom: 15px; }
-
-  .skill .title-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 8px;
-  }
-
-  .skill .title-wrapper data {
-    color: var(--light-gray);
-    font-size: var(--fs-7);
-    font-weight: var(--fw-300);
-  }
-
-  .skill-progress-bg {
-    background: var(--jet);
-    width: 100%;
-    height: 8px;
-    border-radius: 10px;
-  }
-
-  .skill-progress-fill {
-    background: var(--text-gradient-yellow);
-    height: 100%;
-    border-radius: inherit;
-  }
-
-
-
-
-
-  /*-----------------------------------*\
-    #PORTFOLIO
-  \*-----------------------------------*/
-
-  .filter-list { display: none; }
-
-  .filter-select-box {
-    position: relative;
-    margin-bottom: 25px;
-  }
-
-  .filter-select {
-    background: var(--eerie-black-2);
-    color: var(--light-gray);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid var(--jet);
-    border-radius: 14px;
-    font-size: var(--fs-6);
-    font-weight: var(--fw-300);
-  }
-
-  .filter-select.active .select-icon { transform: rotate(0.5turn); }
-
-  .select-list {
-    background: var(--eerie-black-2);
-    position: absolute;
-    top: calc(100% + 6px);
-    width: 100%;
-    padding: 6px;
-    border: 1px solid var(--jet);
-    border-radius: 14px;
-    z-index: 2;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: 0.15s ease-in-out;
-  }
-
-  .filter-select.active + .select-list {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: all;
-  }
-
-  .select-item button {
-    background: var(--eerie-black-2);
-    color: var(--light-gray);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-300);
-    text-transform: capitalize;
-    width: 100%;
-    padding: 8px 10px;
-    border-radius: 8px;
-  }
-
-  .select-item button:hover { --eerie-black-2: hsl(240, 2%, 20%); }
-
-  .project-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-    margin-bottom: 10px;
-  }
-
-  .project-item { display: none; }
-
-  .project-item.active {
-    display: block;
-    animation: scaleUp 0.25s ease forwards;
-  }
-
-  @keyframes scaleUp {
-    0% { transform: scale(0.5); }
-    100% { transform: scale(1); }
-  }
-
-  .project-item > a { width: 100%; }
-
-  .project-img {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    border-radius: 16px;
-    overflow: hidden;
-    margin-bottom: 15px;
-  }
-
-  .project-img::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: 1;
-    transition: var(--transition-1);
-  }
-
-  .project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
-
-  .project-item-icon-box {
-    --scale: 0.8;
-
-    background: var(--jet);
-    color: var(--orange-yellow-crayola);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(var(--scale));
-    font-size: 20px;
-    padding: 18px;
-    border-radius: 12px;
-    opacity: 0;
-    z-index: 1;
-    transition: var(--transition-1);
-  }
-
-  .project-item > a:hover .project-item-icon-box {
-    --scale: 1;
-    opacity: 1;
-  }
-
-  .project-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }
-
-  .project-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-1);
-  }
-
-  .project-item > a:hover img { transform: scale(1.1); }
-
-  .project-title,
-  .project-category { margin-left: 10px; }
-
-  .project-title {
-    color: var(--white-2);
-    font-size: var(--fs-5);
-    font-weight: var(--fw-400);
-    text-transform: capitalize;
-    line-height: 1.3;
-  }
-
-  .project-category {
-    color: var(--light-gray-70);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-300);
-  }
-
-
-
-
-
-  /*-----------------------------------*\
-    #BLOG
-  \*-----------------------------------*/
-
-  .blog-posts { margin-bottom: 10px; }
-
-  .blog-posts-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .blog-post-item > a {
-    position: relative;
-    background: var(--border-gradient-onyx);
-    height: 100%;
-    box-shadow: var(--shadow-4);
-    border-radius: 16px;
-    z-index: 1;
-  }
-
-  .blog-post-item > a::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    background: var(--eerie-black-1);
-    z-index: -1;
-  }
-
-  .blog-banner-box {
-    width: 100%;
-    height: 200px;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .blog-banner-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-1);
-  }
-
-  .blog-post-item > a:hover .blog-banner-box img { transform: scale(1.1); }
-
-  .blog-content { padding: 15px; }
-
-  .blog-meta {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 7px;
-    margin-bottom: 10px;
-  }
-
-  .blog-meta :is(.blog-category, time) {
-    color: var(--light-gray-70);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-300);
-  }
-
-  .blog-meta .dot {
-    background: var(--light-gray-70);
-    width: 4px;
-    height: 4px;
-    border-radius: 4px;
-  }
-
-  .blog-item-title {
-    margin-bottom: 10px;
-    line-height: 1.3;
-    transition: var(--transition-1);
-  }
-
-  .blog-post-item > a:hover .blog-item-title { color: var(--orange-yellow-crayola); }
-
-  .blog-text {
-    color: var(--light-gray);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-300);
-    line-height: 1.6;
-  }
-
-
-
-
-
-  /*-----------------------------------*\
-    #CONTACT
-  \*-----------------------------------*/
-
-  .mapbox {
-    position: relative;
-    height: 250px;
-    width: 100%;
-    border-radius: 16px;
-    margin-bottom: 30px;
-    border: 1px solid var(--jet);
-    overflow: hidden;
-  }
-
-  .mapbox figure { height: 100%; }
-
-  .mapbox iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    filter: grayscale(1) invert(1);
-  }
-
-  .contact-form { margin-bottom: 10px; }
-
-  .form-title { margin-bottom: 20px; }
-
-  .input-wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-    margin-bottom: 25px;
-  }
-
-  .form-input {
-    color: var(--white-2);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-400);
-    padding: 13px 20px;
-    border: 1px solid var(--jet);
-    border-radius: 14px;
-    outline: none;
-  }
-
-  .form-input::placeholder { font-weight: var(--fw-500); }
-
-  .form-input:focus { border-color: var(--orange-yellow-crayola); }
-
-  textarea.form-input {
-    min-height: 100px;
-    height: 120px;
-    max-height: 200px;
-    resize: vertical;
-    margin-bottom: 25px;
-  }
-
-  textarea.form-input::-webkit-resizer { display: none; }
-
-  .form-input:focus:invalid { border-color: var(--bittersweet-shimmer); }
-
-  .form-btn {
-    position: relative;
-    width: 100%;
-    background: var(--border-gradient-onyx);
-    color: var(--orange-yellow-crayola);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 20px;
-    border-radius: 14px;
-    font-size: var(--fs-6);
-    text-transform: capitalize;
-    box-shadow: var(--shadow-3);
-    z-index: 1;
-    transition: var(--transition-1);
-  }
-
-  .form-btn::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    background: var(--bg-gradient-jet);
-    border-radius: inherit;
-    z-index: -1;
-    transition: var(--transition-1);
-  }
-
-  .form-btn ion-icon { font-size: 16px; }
-
-  .form-btn:hover { background: var(--bg-gradient-yellow-1); }
-
-  .form-btn:hover::before { background: var(--bg-gradient-yellow-2); }
-
-  .form-btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-
-  .form-btn:disabled:hover { background: var(--border-gradient-onyx); }
-
-  .form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
-
-
-
-
-
-  /*-----------------------------------*\
-    #RESPONSIVE
-  \*-----------------------------------*/
-
-  /**
-   * responsive larger than 450px screen
-   */
-
-  @media (min-width: 450px) {
-
-    /**
-     * client
-     */
-
-    .clients-item { min-width: calc(33.33% - 10px); }
-
-
-
-    /**
-     * #PORTFOLIO, BLOG
-     */
-
-    .project-img,
-    .blog-banner-box { height: auto; }
-
-  }
-
-
-
-
-
-  /**
-   * responsive larger than 580px screen
-   */
-
-  @media (min-width: 580px) {
-
-    /**
-     * CUSTOM PROPERTY
-     */
-
-    :root {
-
-      /**
-       * typography
-       */
-
-      --fs-1: 32px;
-      --fs-2: 24px;
-      --fs-3: 26px;
-      --fs-4: 18px;
-      --fs-6: 15px;
-      --fs-7: 15px;
-      --fs-8: 12px;
-
-    }
-
-
-
-    /**
-     * #REUSED STYLE
-     */
-
-    .sidebar, article {
-      width: 520px;
-      margin-inline: auto;
-      padding: 30px;
-    }
-
-    .article-title {
-      font-weight: var(--fw-600);
-      padding-bottom: 15px;
-    }
-
-    .article-title::after {
-      width: 40px;
-      height: 5px;
-    }
-
-    .icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      font-size: 18px;
-    }
-
-
-
-    /**
-     * #MAIN
-     */
-
-    main {
-      margin-top: 60px;
-      margin-bottom: 100px;
-    }
-
-
-
-    /**
-     * #SIDEBAR
-     */
-
-    .sidebar {
-      max-height: 180px;
-      margin-bottom: 30px;
-    }
-
-    .sidebar.active { max-height: 584px; }
-
-    .sidebar-info { gap: 25px; }
-
-    .avatar-box { border-radius: 30px; }
-
-    .avatar-box img { width: 120px; }
-
-    .info-content .name { margin-bottom: 15px; }
-
-    .info-content .title { padding: 5px 18px; }
-
-    .info_more-btn {
-      top: -30px;
-      right: -30px;
-      padding: 10px 15px;
-    }
-
-    .info_more-btn span {
-      display: block;
-      font-size: var(--fs-8);
-    }
-
-    .info_more-btn ion-icon { display: none; }
-
-    .separator { margin: 32px 0; }
-
-    .contacts-list { gap: 20px; }
-
-    .contact-info {
-      max-width: calc(100% - 64px);
-      width: calc(100% - 64px);
-    }
-
-
-
-    /**
-     * #NAVBAR
-     */
-
-    .navbar { border-radius: 20px 20px 0 0; }
-
-    .navbar-list { gap: 20px; }
-
-    .navbar-link { --fs-8: 14px; }
-
-
-
-    /**
-     * #ABOUT
-     */
-
-    .about .article-title { margin-bottom: 20px; }
-
-    .about-text { margin-bottom: 40px; }
-
-    /* service */
-
-    .service-item {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 18px;
-      padding: 30px;
-    }
-
-    .service-icon-box {
-      margin-bottom: 0;
-      margin-top: 5px;
-    }
-
-    .icon-boxs {
-      margin-bottom: 0;
-      margin-top: 5px;
-    }
-
-
-    .service-content-box { text-align: left; }
-
-    /* testimonials */
-
-    .testimonials-title { margin-bottom: 25px; }
-
-    .testimonials-list {
-      gap: 30px;
-      margin: 0 -30px;
-      padding: 30px;
-      padding-bottom: 35px;
-    }
-
-    .content-card {
-      padding: 30px;
-      padding-top: 25px;
-    }
-
-    .testimonials-avatar-box {
-      transform: translate(30px, -30px);
-      border-radius: 20px;
-    }
-
-    .testimonials-avatar-box img { width: 80px; }
-
-    .testimonials-item-title {
-      margin-bottom: 10px;
-      margin-left: 95px;
-    }
-
-    .testimonials-text {
-      line-clamp: 2;
-      -webkit-line-clamp: 2;
-    }
-
-    /* testimonials modal */
-
-    .modal-container { padding: 20px; }
-
-    .testimonials-modal {
-      display: flex;
-      justify-content: flex-start;
-      align-items: stretch;
-      gap: 25px;
-      padding: 30px;
-      border-radius: 20px;
-    }
-
-    .modal-img-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .modal-avatar-box {
-      border-radius: 18px;
-      margin-bottom: 0;
-    }
-
-    .modal-avatar-box img { width: 65px; }
-
-    .modal-img-wrapper > img {
-      display: block;
-      flex-grow: 1;
-      width: 35px;
-    }
-
-    /* clients */
-
-    .clients-list {
-      gap: 50px;
-      margin: 0 -30px;
-      padding: 45px;
-      scroll-padding-inline: 45px;
-    }
+        <figure class="avatar-box">
+        <img src="./assets/images/avatar-jorge.png" alt="Johnalyn Jorge" width="80">
+        </figure>
 
-    .clients-item { min-width: calc(33.33% - 35px); }
+        <div class="info-content">
+          <h1 class="name" title="Johnalyn Jorge">Johnalyn Jorge</h1>
 
+          <p class="title">BSIT Graduate</p>
+        </div>
 
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
 
-    /**
-     * #RESUME
-     */
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
 
-    .timeline-list { margin-left: 65px; }
+      </div>
 
-    .timeline-item:not(:last-child)::before { left: -40px; }
+      <div class="sidebar-info_more">
 
-    .timeline-item::after {
-      height: 8px;
-      width: 8px;
-      left: -43px;
-    }
+        <div class="separator"></div>
 
-    .skills-item:not(:last-child) { margin-bottom: 25px; }
+        <ul class="contacts-list">
 
+          <li class="contact-item">
 
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
 
-    /**
-     * #PORTFOLIO, BLOG
-     */
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
 
-    .project-img, .blog-banner-box { border-radius: 16px; }
+              <a href="mailto:johnalynjorge@gmail.com" class="contact-link">johnalynjorge@gmail.com</a>
+            </div>
 
-    .blog-posts-list { gap: 30px; }
+          </li>
 
-    .blog-content { padding: 25px; }
+          <li class="contact-item">
 
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
 
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
 
-    /**
-     * #CONTACT
-     */
+              <a href="tel:+639475374832" class="contact-link">+639745374832</a>
+            </div>
 
-    .mapbox {
-      height: 380px;
-      border-radius: 18px;
-    }
+          </li>
 
-    .input-wrapper {
-      gap: 30px;
-      margin-bottom: 30px;
-    }
+          <li class="contact-item">
 
-    .form-input { padding: 15px 20px; }
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
 
-    textarea.form-input { margin-bottom: 30px; }
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
 
-    .form-btn {
-      --fs-6: 16px;
-      padding: 16px 20px;
-    }
+              <time datetime="2001-06-08">June 8, 2001</time>
+            </div>
 
-    .form-btn ion-icon { font-size: 18px; }
+          </li>
 
-  }
+          <li class="contact-item">
 
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
 
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
 
+              <address>Dasmariñas, Cavite, Philippines</address>
+            </div>
 
+          </li>
 
-  /**
-   * responsive larger than 768px screen
-   */
+        </ul>
 
-  @media (min-width: 768px) {
+        <div class="separator"></div>
 
-    /**
-     * REUSED STYLE
-     */
+        <ul class="social-list">
 
-    .sidebar, article { width: 700px; }
+          <li class="social-item">
+            <a href="https://www.facebook.com/johnalyn.jorge/" target="_blank" rel="noopener noreferrer" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
 
-    .has-scrollbar::-webkit-scrollbar-button { width: 100px; }
+          <li class="social-item">
+            <a href="https://github.com/johnalynjorge" target="_blank" rel="noopener noreferrer" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
 
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/johnalynjorge/" target="_blank" rel="noopener noreferrer" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
 
+          <li class="social-item">
+            <a href="https://drive.google.com/file/d/16HwR-PhCSUUC7Mk50IZMgBBi1Tf5hdAd/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="social-link">
+              <ion-icon name="document-text-outline"></ion-icon>
+            </a>
+          </li>
 
-    /**
-     * SIDEBAR
-     */
+        </ul>
 
-    .contacts-list {
-      grid-template-columns: 1fr 1fr;
-      gap: 30px 15px;
-    }
+      </div>
 
+    </aside>
 
 
-    /**
-     * NAVBAR
-     */
 
-    .navbar-link { --fs-8: 15px; }
 
 
+    <!--
+      - #main-content
+    -->
 
-    /**
-     * ABOUT
-     */
+    <div class="main-content">
 
-    /* testimonials modal */
+      <!--
+        - #NAVBAR
+      -->
 
-    .testimonials-modal {
-      gap: 35px;
-      max-width: 680px;
-    }
+      <nav class="navbar">
 
-    .modal-avatar-box img { width: 80px; }
+        <ul class="navbar-list">
 
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
 
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
 
-    /**
-     * PORTFOLIO
-     */
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
 
-    .article-title { padding-bottom: 20px; }
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Certificates</button>
+          </li>
 
-    .filter-select-box { display: none; }
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
 
-    .filter-list {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 25px;
-      padding-left: 5px;
-      margin-bottom: 30px;
-    }
+        </ul>
 
-    .filter-item button {
-      color: var(--light-gray);
-      font-size: var(--fs-5);
-      transition: var(--transition-1);
-    }
+      </nav>
 
-    .filter-item button:hover { color: var(--light-gray-70); }
 
-    .filter-item button.active { color: var(--orange-yellow-crayola); }
 
-    /* portfolio and blog grid */
 
-    .project-list, .blog-posts-list { grid-template-columns: 1fr 1fr; }
 
+      <!--
+        - #ABOUT
+      -->
 
+      <article class="about  active" data-page="about">
 
-    /**
-     * CONTACT
-     */
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
 
-    .input-wrapper { grid-template-columns: 1fr 1fr; }
+        <section class="about-text">
+          <p>
+            A recent graduate of the Bachelor of Science in Information Technology program at STI College Dasmariñas, where I successfully completed my academic journey and earned my degree, is now looking forward to embarking on a promising career in the dynamic and ever-evolving field of technology, armed with a solid foundation in IT knowledge, practical skills, and a strong desire to contribute to the digital transformation of businesses and society at large.
+          </p>
 
-    .form-btn {
-      width: max-content;
-      margin-left: auto;
-    }
+          <p>
 
-  }
+          </p>
+        </section>
 
 
+        <!--
+          - service
+        -->
 
+        <section class="service">
 
+          <h3 class="h3 service-title">What i'm doing</h3>
 
-  /**
-   * responsive larger than 1024px screen
-   */
+          <ul class="service-list">
 
-  @media (min-width: 1024px) {
+            <li class="service-item">
 
-    /**
-     * CUSTOM PROPERTY
-     */
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+              </div>
 
-    :root {
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Programming</h4>
 
-      /**
-      * shadow
-      */
+                <p class="service-item-text">
+                  Java, C#, Python
+                </p>
+              </div>
 
-      --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.125);
-      --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.125);
-      --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.125);
+            </li>
 
-    }
+            <li class="service-item">
 
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+              </div>
 
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Web development</h4>
 
-    /**
-     * REUSED STYLE
-     */
+                <p class="service-item-text">
+                  HTML, CSS, JavaScript, PHP (Laravel), MySQL
+                </p>
+              </div>
 
-    .sidebar, article {
-      width: 950px;
-      box-shadow: var(--shadow-5);
-    }
+            </li>
 
+            <li class="service-item">
 
+              <div class="service-icon-box">
+                <!-- <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40"> -->
+                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+              </div>
 
-    /**
-     * MAIN
-     */
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Software Development</h4>
 
-    main { margin-bottom: 60px; }
+                <p class="service-item-text">
+                  C#, Microsoft SQL
+                </p>
+              </div>
 
-    .main-content {
-      position: relative;
-      width: max-content;
-      margin: auto;
-    }
+            </li>
 
+            <li class="service-item">
 
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-app.svg
+                " alt="design icon" width="40">
+              </div>
 
-    /**
-     * NAVBAR
-     */
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Mobile App Development</h4>
 
-    .navbar {
-      position: absolute;
-      bottom: auto;
-      top: 0;
-      left: auto;
-      right: 0;
-      width: max-content;
-      border-radius: 0 20px;
-      padding: 0 20px;
-      box-shadow: none;
-    }
+                <p class="service-item-text">
+                  Java
+                </p>
+              </div>
 
-    .navbar-list {
-      gap: 30px;
-      padding: 0 20px;
-    }
+            </li>
 
-    .navbar-link { font-weight: var(--fw-500); }
+            <li class="service-item">
 
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg
+                " alt="design icon" width="40">
+              </div>
 
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">UI/UX Designing</h4>
 
-    /**
-     * ABOUT
-     */
+                <p class="service-item-text">
+                  Figma, FluidUI
+                </p>
+              </div>
 
-    /* service */
+            </li>
 
-    .service-list {
-      grid-template-columns: 1fr 1fr;
-      gap: 20px 25px;
-    }
+            <!-- <li class="service-item">
 
-    /* testimonials */
+              <div class="icon-boxs">
+                <ion-icon name="apps-outline"></ion-icon>
+              </div>
 
-    .testimonials-item { min-width: calc(50% - 15px); }
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Photography</h4>
 
-    /* clients */
+                <p class="service-item-text">
+                  I make high-quality photos of any category at a professional level.
+                </p>
+              </div>
 
-    .clients-item { min-width: calc(25% - 38px); }
+            </li> -->
 
+          </ul>
 
+        </section>
 
-    /**
-     * PORTFOLIO
-     */
 
-    .project-list { grid-template-columns: repeat(3, 1fr); }
+        <!--
+          - testimonials
+        -->
 
+        <!-- <section class="testimonials">
 
+          <h3 class="h3 testimonials-title">Testimonials</h3>
 
-    /**
-     * BLOG
-     */
+          <ul class="testimonials-list has-scrollbar">
 
-    .blog-banner-box { height: 230px; }
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
 
-  }
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
+                </figure>
 
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
 
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
 
+              </div>
+            </li>
 
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
 
-  /**
-   * responsive larger than 1250px screen
-   */
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
+                </figure>
 
-  @media (min-width: 1250px) {
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
 
-    /**
-     * RESET
-     */
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
 
-    body::-webkit-scrollbar { width: 20px; }
+              </div>
+            </li>
 
-    body::-webkit-scrollbar-track { background: var(--smoky-black); }
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
 
-    body::-webkit-scrollbar-thumb {
-      border: 5px solid var(--smoky-black);
-      background: hsla(0, 0%, 100%, 0.1);
-      border-radius: 20px;
-      box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
-                  inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
-    }
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
+                </figure>
 
-    body::-webkit-scrollbar-thumb:hover { background: hsla(0, 0%, 100%, 0.15); }
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
 
-    body::-webkit-scrollbar-button { height: 60px; }
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
 
+              </div>
+            </li>
 
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
 
-    /**
-     * REUSED STYLE
-     */
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
+                </figure>
 
-    .sidebar, article { width: auto; }
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
 
-    article { min-height: 100%; }
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
 
+              </div>
+            </li>
 
+          </ul>
 
-    /**
-     * MAIN
-     */
+        </section> -->
 
-    main {
-      max-width: 1200px;
-      margin-inline: auto;
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      gap: 25px;
-    }
 
-    .main-content {
-      min-width: 75%;
-      width: 75%;
-      margin: 0;
-    }
+        <!--
+          - testimonials modal
+        -->
 
+         <!-- <div class="modal-container" data-modal-container>
 
+          <div class="overlay" data-overlay></div>
 
-    /**
-     * SIDEBAR
-     */
+          <section class="testimonials-modal">
 
-    .sidebar {
-      position: sticky;
-      top: 60px;
-      max-height: max-content;
-      height: 100%;
-      margin-bottom: 0;
-      padding-top: 60px;
-      z-index: 1;
-    }
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
 
-    .sidebar-info { flex-direction: column; }
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
 
-    .avatar-box img { width: 150px; }
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
 
-    .info-content .name {
-      white-space: nowrap;
-      text-align: center;
-    }
+            <div class="modal-content">
 
-    .info-content .title { margin: auto; }
+              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
 
-    .info_more-btn { display: none; }
+              <time datetime="2021-06-14">14 June, 2021</time>
 
-    .sidebar-info_more {
-      opacity: 1;
-      visibility: visible;
-    }
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div>
 
-    .contacts-list { grid-template-columns: 1fr; }
+            </div>
 
-    .contact-info :is(.contact-link) {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+          </section>
 
-    .contact-info :is(.contact-link, time, address) {
-      --fs-7: 14px;
-      font-weight: var(--fw-300);
-    }
+        </div> -->
 
-    .separator:last-of-type {
-      margin: 15px 0;
-      opacity: 0;
-    }
 
-    .social-list { justify-content: center; }
+        <!--
+          - clients
+        -->
 
+         <!-- <section class="clients">
 
+          <h3 class="h3 clients-title">Clients</h3>
 
-    /**
-       * RESUME
-       */
+          <ul class="clients-list has-scrollbar">
 
-    .timeline-text { max-width: 700px; }
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-1-color.png" alt="client logo">
+              </a>
+            </li>
 
-  }
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-2-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-3-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-4-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-5-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-6-color.png" alt="client logo">
+              </a>
+            </li>
+
+          </ul>
+
+        </section> -->
+
+      </article>
+
+
+
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">STI College Dasmariñas</h4>
+
+              <span>2019 - 2023</span>
+
+              <p class="timeline-text">
+                Bachelor of Science in Information Technology.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">STI College Dasmariñas</h4>
+
+              <span>2017 - 2019</span>
+
+              <p class="timeline-text">
+                IT in Mobile App and Web Development.
+              </p>
+
+            </li>
+
+            <!-- <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">High school of art and design</h4>
+
+              <span>2002 — 2004</span>
+
+              <p class="timeline-text">
+                Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur
+                magni dolores
+                eos.
+              </p>
+
+            </li> -->
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Intern | Philippine Christian University - Dasmariñas </h4>
+
+              <span>February 2023 - May 2023</span>
+
+              <p class="timeline-text">
+                  Engaged in roles and responsibilities within the Purchasing and Property Office.
+              </p>
+              <p class="timeline-text">
+                Actively participated in the development of the BlueStocks system, an innovative inventory management software.
+            </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Intern | Metro Department Store</h4>
+
+              <span>2019</span>
+
+              <p class="timeline-text">
+                Worked closely with HR and accounting teams to support their needs and objectives.
+              </p>
+              <p class="timeline-text">
+                Demonstrated expertise in utilizing various office applications, including Microsoft Excel, Word, and PowerPoint.
+              </p>
+              <p class="timeline-text">
+                Gained valuable hands-on experience and practical knowledge in inventory management and accounting processes.
+              </p>
+              <p class="timeline-text">
+                Received positive feedback from supervisors for exceptional performance during OJT.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <!-- <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Java</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">C#</h5>
+                <data value="60">60%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 60%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">PHP</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">HTML</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+                <div class="title-wrapper">
+                  <h5 class="h5">CSS</h5>
+                  <data value="60">60%</data>
+                </div>
+
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 60%;"></div>
+                </div>
+
+              </li>
+
+              <li class="skills-item">
+
+                <div class="title-wrapper">
+                  <h5 class="h5">Python</h5>
+                  <data value="50">50%</data>
+                </div>
+
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 50%;"></div>
+                </div>
+
+              </li>
+
+              <li class="skills-item">
+
+                <div class="title-wrapper">
+                  <h5 class="h5">SQL and MySQL</h5>
+                  <data value="60">60%</data>
+                </div>
+
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 60%;"></div>
+                </div>
+
+              </li>
+
+              <li class="skills-item">
+
+                <div class="title-wrapper">
+                  <h5 class="h5">SAP Business One</h5>
+                  <data value="60">60%</data>
+                </div>
+
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 60%;"></div>
+                </div>
+
+              </li>
+
+              <li class="skills-item">
+
+                <div class="title-wrapper">
+                  <h5 class="h5">Figma</h5>
+                  <data value="50">50%</data>
+                </div>
+
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 50%;"></div>
+                </div>
+
+              </li>
+
+          </ul>
+
+        </section> -->
+
+      </article>
+
+
+
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>UI/UX design</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Applications</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web development</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>UI/UX Design</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Applications</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web Development</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+             <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://sti-sims.000webhostapp.com" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/laptop-stisims.png" alt="STI-SIMS" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">STI SIMS</h3>
+
+                <p class="project-category">Web Development (HTML, CSS, PHP, JavaScript, MySQL)</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="ui/ux design">
+              <a href="https://johnalynjorge.github.io/Silakbo/" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/desktop-silakbo.png" alt="SILAKBO" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">SILAKBO</h3>
+
+                <p class="project-category">Web Design (HTML, CSS, JavaScript)</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="https://github.com/johnalynjorge/EnrollmentSystem.git" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/desktop-enollment.png" alt="fundo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Enrollment System</h3>
+
+                <p class="project-category">Application (C#, Microsoft SQL)</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="ui/ux design">
+              <a href="https://poctpg1.weebly.com/" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/laptop-task-performance.png" alt="POC" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Pre Final Task Performance in Principle of Communications </h3>
+
+                <p class="project-category">Web Design (Weebly)</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="ui/ux design">
+              <a href="https://www.figma.com/proto/kic0GyWo4XJgomF0S7dYZe/figma-training?node-id=1-2&starting-point-node-id=1%3A2&mode=design&t=9eLjakzDGVhrpGCh-1" target="_blank" rel="noopener noreferrer">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/phone-vinyl.png" alt="Vinyl" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Vinyl</h3>
+
+                <p class="project-category">Mobile Design (Figma)</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="certificates" data-page="certificates">
+
+        <header>
+          <h2 class="h2 article-title">Certificates</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="https://www.hackerrank.com/certificates/d1ae6f3886aa" target="_blank" rel="noopener noreferrer">
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Software Engineering</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">October 26, 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Software Engineer Intern Certificate</h3>
+
+                  <p class="blog-text">
+                    Hackerrank
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://www.hackerrank.com/certificates/f4c6a8fd6517" target="_blank" rel="noopener noreferrer">
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">SQL</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">February 28, 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">SQL (Intermediate)</h3>
+
+                  <p class="blog-text">
+                    Hackerrank
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://www.hackerrank.com/certificates/2ad54c21fc14" target="_blank" rel="noopener noreferrer">
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Java</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">January 16, 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Java (Basic)</h3>
+
+                  <p class="blog-text">
+                    Hackerrank
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://www.hackerrank.com/certificates/b9ce3b8063d0" target="_blank" rel="noopener noreferrer">
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">SQL</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">January 30, 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">SQL (Basic)</h3>
+
+                  <p class="blog-text">
+                    Hackerrank
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://www.hackerrank.com/certificates/9abf957ecc10" target="_blank" rel="noopener noreferrer">
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">CSS</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">January 30, 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">CSS</h3>
+
+                  <p class="blog-text">
+                    Hackerrank
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://www.hackerrank.com/certificates/bce47b22473b" target="_blank" rel="noopener noreferrer">
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">JavaScript</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">January 30, 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">JavaScript (Basic)</h3>
+
+                  <p class="blog-text">
+                    Hackerrank
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://certificate.fitacademy.ph/validate/index.php?cer_id=ca9b69a36bbce33575808e3b1bf7df04fe43fdb58a38ad0d58f02f92b2e366d1" target="_blank" rel="noopener noreferrer">
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">SAP Business One</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">March 2021</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">SAP Basic (Financials and Logistics)</h3>
+
+                  <p class="blog-text">
+                    FIT Academy
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://www.credly.com/badges/e9a9512b-186a-4dae-a684-03c3ee6f8cb9/public_url" target="_blank" rel="noopener noreferrer" >
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Computer Hardwares</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">September 4, 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Computer Hardware Basics</h3>
+
+                  <p class="blog-text">
+                    Cisco
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://www.credly.com/badges/00a14905-3fb5-484a-b803-ef8a9d2a2141/public_url" target="_blank" rel="noopener noreferrer" >
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">JavaScript</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">September 4, 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">JavaScript Essentials 1</h3>
+
+                  <p class="blog-text">
+                    Cisco
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://www.kaggle.com/learn/certification/johnalynjorge/intro-to-programming" target="_blank" rel="noopener noreferrer" >
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Python</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">January 19, 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Intro to Programming</h3>
+
+                  <p class="blog-text">
+                    Kaggle
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://www.freecodecamp.org/certification/johnalynjorge/javascript-algorithms-and-data-structures" target="_blank" rel="noopener noreferrer" >
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">JavaScript</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">February 2, 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Javascript Algorithms And Data Structures</h3>
+
+                  <p class="blog-text">
+                    freeCodeCamp
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            <!-- I'm currently looking for internship opportunities! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to email me at <a style="color: white; display: inline-block;" class="contact-link" href="mailto:johnalynjorge@gmail.com">johnalynjorge@gmail.com</a> -->
+            If you have any questions, or if you just want to say hi, please feel free to email me at <a style="color: white; display: inline-block;" class="contact-link" href="mailto:johnalynjorge@gmail.com">johnalynjorge@gmail.com</a>
+          </p>
+
+          <p>
+
+          </p>
+        </section>
+
+        <!-- <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section> -->
+
+        <!-- <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="mailto:johnalynjorge@gmail.com" enctype="text/plain" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+          </form>
+
+        </section> -->
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" type="text/javascript"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
